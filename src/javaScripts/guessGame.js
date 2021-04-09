@@ -1,14 +1,15 @@
-class guessGame {
+class GuessGame {
     constructor() {
-        this.numberArray = this.#createNumberArray();
+        this.numberArray = this.createNumberArray();
+        this.number = this.ArraytoNumber(this.numberArray);
     }
 
-    #createNumberArray() {
+    createNumberArray() {
         var numbers = [];
         while(numbers.length < 4) {
-            var number = Math.floor(Math.random()*10);
+            var number = Math.floor(Math.random()*10).toString();
             if(numbers.indexOf(number) == -1) {
-                numbers.push(number.toString());
+                numbers.push(number);
             }
         }
 
@@ -16,14 +17,14 @@ class guessGame {
     }
 
     checkAnswer(answer) {
-        var answerArray = this.#NumbertoArray(answer);
+        var answerArray = this.NumbertoArray(answer);
         var plus = 0;
         var minus = 0;
         var result = "";
 
         for (let i = 0; i < answerArray.length; i++) {
-            if(this.numberArray.indexOf(answerArray[i]) != -1) {
-                if(this.numberArray.indexOf(answerArray[i]) == i) {
+            if(this.numberArray.indexOf(answerArray[i]) !== -1) {
+                if(this.numberArray.indexOf(answerArray[i]) === i) {
                     plus++;
                 } else {
                     minus++;
@@ -31,25 +32,27 @@ class guessGame {
             }
         }
 
-        if(plus != 0) {
+        if(plus !== 0) {
             result += "+" + plus.toString();
         }
-        if(minus != 0) {
+        if(minus !== 0) {
             result += "-" + minus.toString();
         }
-        if(result == "") {
+        if(result === "") {
             result = "0";
         }
 
         return result;
     }
 
-    #ArraytoNumber(numbers) {
+    ArraytoNumber(numbers) {
         return numbers[0]+numbers[1]+numbers[2]+numbers[3];
     }
-    #NumbertoArray(number) {
+    NumbertoArray(number) {
         number = number.toString();
 
         return number.split("");
     }
 }
+
+export default GuessGame;
