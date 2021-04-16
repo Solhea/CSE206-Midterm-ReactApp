@@ -1,4 +1,4 @@
-import '../css/GuessGamePage.css';
+import '../assets/css/GuessGamePage.css';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'
 import React, { Component } from 'react';
