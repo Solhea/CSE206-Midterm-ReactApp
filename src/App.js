@@ -1,32 +1,21 @@
 import logo from './logo.svg';
 import './App.css';
 import React, { useState } from 'react';
-function random4DigitNumberNotStartingWithZero(){
-  // I did not include the zero, for the first digit
-  var digits = "123456789".split(''),
-      first = shuffle(digits).pop();
-  // Add "0" to the array
-  digits.push('0');
-  return parseInt( first + shuffle(digits).join('').substring(0,3), 10);
-}
+import RandomNumber from "./RandomNumber"
 
-function shuffle(o){
-  for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
-  return o;
-}
 
 
 const App = () => {
   
-  const [randomNumber, setRandomNumber] = useState(() =>random4DigitNumberNotStartingWithZero());
+  const [randomNumber, setRandomNumber] = useState(() =>RandomNumber());
   const [guessedNumber, setGuessedNumber] = useState(0)
   const [result, setResult] = useState(0)
 
   function deneme(SecretNumber){
-  
     console.log(document.getElementById("UserInput").value)
     console.log(SecretNumber);
     document.getElementById("UserInput").value = "+4";
+   
   }
   
 
