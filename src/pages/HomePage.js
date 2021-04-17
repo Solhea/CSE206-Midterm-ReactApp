@@ -13,7 +13,7 @@ function HomePage() {
               <div class="row">
                   <Card class="card">
                     <Card.Body>
-                      <Card.Link href= "/GameWikiPage/ff7">
+                      <Card.Link href= "/Game1WikiPage">
                         <Card.Img src={ff7} ></Card.Img>
                       </Card.Link>
                       <Card.Title>Final Fantasy VII Remake</Card.Title>
@@ -22,7 +22,7 @@ function HomePage() {
 
                   <Card class="card">
                     <Card.Body>
-                      <Card.Link href= "/GameWikiPage/p5r">
+                      <Card.Link href= "/Game2WikiPage">
                         <Card.Img src={p5r} ></Card.Img>
                       </Card.Link>
                       <Card.Title>Persona 5 Royal</Card.Title>
@@ -31,7 +31,7 @@ function HomePage() {
 
                   <Card class="card">
                     <Card.Body>
-                      <Card.Link href= "/GameWikiPage/tlou2">
+                      <Card.Link href= "/Game3WikiPage">
                         <Card.Img src={tlou2} ></Card.Img>
                       </Card.Link>
                       <Card.Title>The Last of Us 2</Card.Title>

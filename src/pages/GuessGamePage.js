@@ -1,4 +1,6 @@
-
+import "../assets/css/GuessGamePage.css";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 import React, { useState, useEffect } from "react";
 import RandomNumber from "./RandomNumber";
 import CheckTheResult from "./CheckTheResult";
@@ -36,50 +38,48 @@ const GuessGamePage = () => {
   }, [randomNumber]);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <div>
-          Type Your Guess
-          <input
-            type="text"
+    <div class="GuessGame">
+      <div>
+        <h2>Guess the Number With Four Digits</h2>
+      </div>
+      <br />
+      <div class="ShowForm">
+        Type your guess:
+        <br />
+        <Form.Group>
+          <Form.Control
             id="UserInput"
-            placeholder="Guess The Number"
-            name="fname"
-          ></input>
-        </div>
-        <button
-          type="button"
-          id="GuessEvent"
-          onClick={() => {
-            check(document.getElementById("UserInput").value);
-          }}
-        >
-          Click Me!{randomNumber}
-        </button>
-        <div>Number of prediction: {counter}</div>
-        <div>Result: {result}</div>
-        <button
-          type="button"
-          id="ReGuessEvent"
-          onClick={() => {
-            setRandomNumber(() => RandomNumber());
-          }}
-        >
-          Generate New Random Number
-        </button>
-      </header>
+            type="text"
+            pattern="[0-9]*"
+            maxLength="4"
+            placeholder="Enter 4 digit number"
+          />
+        </Form.Group>
+      </div>
+      <div class="PredicText">Number of Predictions: {counter}</div>
+      <div class="PredicText" >Result: {result}</div>
+    <div class="GuessEvent">
+      <Button
+        type="button"
+        id="GuessEvent"
+        onClick={() => {
+          check(document.getElementById("UserInput").value);
+        }}
+      >
+        Check!{randomNumber}
+      </Button>
+      </div>
+      <div class="GuessEvent">
+      <Button
+        type="button"
+        id="ReGuessEvent"
+        onClick={() => {
+          setRandomNumber(() => RandomNumber());
+        }}
+      >
+        Generate New Random Number
+      </Button>
+      </div>
     </div>
   );
 };
