@@ -1,4 +1,3 @@
-import data from '../assets/JSON/gameWikis.json'
 import '../assets/css/GameWikiPage.css'
 import ff7 from '../assets/img/ff7.jpg';
 

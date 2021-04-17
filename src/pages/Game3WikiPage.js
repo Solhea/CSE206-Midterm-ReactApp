@@ -1,4 +1,3 @@
-import data from '../assets/JSON/gameWikis.json'
 import '../assets/css/GameWikiPage.css'
 import tlou2 from '../assets/img/tlou2.jpg';
 

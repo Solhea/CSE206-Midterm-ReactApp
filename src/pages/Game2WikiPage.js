@@ -1,4 +1,3 @@
-import data from '../assets/JSON/gameWikis.json'
 import '../assets/css/GameWikiPage.css'
 import p5r from '../assets/img/p5r.jpg';
 
