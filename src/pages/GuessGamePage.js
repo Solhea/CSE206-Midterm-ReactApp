@@ -17,9 +17,6 @@ const GuessGamePage = () => {
   const [result, setResult] = useState("");
 
   const check = (userNumber) => {
-    /* console.log(document.getElementById("UserInput").value)
-    console.log(SecretNumber);
-    document.getElementById("UserInput").value = "+4"; */
     setCounter(counter + 1);
 
     setResult(CheckTheResult(userNumber, randomNumber));
@@ -57,28 +54,28 @@ const GuessGamePage = () => {
         </Form.Group>
       </div>
       <div class="PredicText">Number of Predictions: {counter}</div>
-      <div class="PredicText" >Result: {result}</div>
-    <div class="GuessEvent">
-      <Button
-        type="button"
-        id="GuessEvent"
-        onClick={() => {
-          check(document.getElementById("UserInput").value);
-        }}
-      >
-        Check!{randomNumber}
-      </Button>
+      <div class="PredicText">Result: {result}</div>
+      <div class="GuessEvent">
+        <Button
+          type="button"
+          id="GuessEvent"
+          onClick={() => {
+            check(document.getElementById("UserInput").value);
+          }}
+        >
+          Check!{randomNumber}
+        </Button>
       </div>
       <div class="GuessEvent">
-      <Button
-        type="button"
-        id="ReGuessEvent"
-        onClick={() => {
-          setRandomNumber(() => RandomNumber());
-        }}
-      >
-        Generate New Random Number
-      </Button>
+        <Button
+          type="button"
+          id="ReGuessEvent"
+          onClick={() => {
+            setRandomNumber(() => RandomNumber());
+          }}
+        >
+          Generate New Random Number
+        </Button>
       </div>
     </div>
   );
