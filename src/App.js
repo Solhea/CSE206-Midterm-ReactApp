@@ -1,17 +1,17 @@
 import logo from "./logo.svg";
 import "./App.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import RandomNumber from "./RandomNumber";
 import CheckTheResult from "./CheckTheResult";
 
-const AlertCheck = (ReturnedResult) => {
+const AlertCheck = (ReturnedResult, RandomNumber) => {
   if (ReturnedResult === "+4") {
-    alert("You win");
+    alert("Congratulations! The answer is: " + RandomNumber.toString());
   }
-}
+};
 
 const App = () => {
-  const [randomNumber] = useState(() => RandomNumber());
+  const [randomNumber, setRandomNumber] = useState(() => RandomNumber());
   const [counter, setCounter] = useState(0);
   const [result, setResult] = useState("");
 
@@ -20,14 +20,21 @@ const App = () => {
     console.log(SecretNumber);
     document.getElementById("UserInput").value = "+4"; */
     setCounter(counter + 1);
-    var ReturnedResult  = CheckTheResult(userNumber, randomNumber) 
-    setResult(ReturnedResult)
-    
-    AlertCheck(ReturnedResult)
-    
 
-    
+    setResult(CheckTheResult(userNumber, randomNumber));
   };
+  const NewGameSetting = () => {
+    setCounter(0);
+    setResult("");
+    document.getElementById("UserInput").value = "";
+  };
+
+  useEffect(() => {
+    AlertCheck(result, randomNumber);
+  }, [result]);
+  useEffect(() => {
+    NewGameSetting();
+  }, [randomNumber]);
 
   return (
     <div className="App">
@@ -44,24 +51,35 @@ const App = () => {
         >
           Learn React
         </a>
-        <input
-          type="text"
-          id="UserInput"
-          placeholder="Guess The Number"
-          name="fname"
-        ></input>
+        <div>
+          Type Your Guess
+          <input
+            type="text"
+            id="UserInput"
+            placeholder="Guess The Number"
+            name="fname"
+          ></input>
+        </div>
         <button
           type="button"
           id="GuessEvent"
           onClick={() => {
-            check(document.getElementById("UserInput").value) 
-            ;
+            check(document.getElementById("UserInput").value);
           }}
         >
           Click Me!{randomNumber}
         </button>
         <div>Number of prediction: {counter}</div>
         <div>Result: {result}</div>
+        <button
+          type="button"
+          id="ReGuessEvent"
+          onClick={() => {
+            setRandomNumber(() => RandomNumber());
+          }}
+        >
+          Generate New Random Number
+        </button>
       </header>
     </div>
   );
