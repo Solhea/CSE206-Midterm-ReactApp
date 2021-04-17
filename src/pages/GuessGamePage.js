@@ -55,6 +55,7 @@ const GuessGamePage = () => {
       </div>
       <div class="PredicText">Number of Predictions: {counter}</div>
       <div class="PredicText">Result: {result}</div>
+      {console.log(randomNumber)}
       <div class="GuessEvent">
         <Button
           type="button"
@@ -63,7 +64,7 @@ const GuessGamePage = () => {
             check(document.getElementById("UserInput").value);
           }}
         >
-          Check!{randomNumber}
+          Check!
         </Button>
       </div>
       <div class="GuessEvent">

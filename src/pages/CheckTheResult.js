@@ -19,9 +19,9 @@ const CheckTheResult = (GuessedNumber, RandomNumber) => {
   } else if (resultPositive > 0 && resultNegative === 0) {
     return "+" + resultPositive;
   } else if (resultPositive > 0 && resultNegative < 0) {
-    return "+" + resultPositive +   resultNegative;
-  } else if (resultPositive === 0 && resultNegative < 0){
-      return   resultNegative.toString()
+    return "+" + resultPositive + resultNegative;
+  } else if (resultPositive === 0 && resultNegative < 0) {
+    return resultNegative.toString();
   }
 };
 
