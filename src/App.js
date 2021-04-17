@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
-import React, { useState } from 'react';
-import RandomNumber from "./RandomNumber"
+import logo from "./logo.svg";
+import "./App.css";
+import React, { useState } from "react";
+import RandomNumber from "./RandomNumber";
+import CheckTheResult from "./CheckTheResult";
 
-
+const AlertCheck = (abc) => {
+  if (abc === "+4") {
+    alert("You win");
+  }
+}
 
 const App = () => {
-  
-  const [randomNumber, setRandomNumber] = useState(() =>RandomNumber());
-  const [guessedNumber, setGuessedNumber] = useState(0)
-  const [result, setResult] = useState(0)
+  const [randomNumber] = useState(() => RandomNumber());
+  const [counter, setCounter] = useState(0);
+  const [result, setResult] = useState("");
 
-  function deneme(SecretNumber){
-    console.log(document.getElementById("UserInput").value)
+  const check = (userNumber) => {
+    /* console.log(document.getElementById("UserInput").value)
     console.log(SecretNumber);
-    document.getElementById("UserInput").value = "+4";
-   
-  }
-  
+    document.getElementById("UserInput").value = "+4"; */
+    setCounter(counter + 1);
+    var ReturnedResult  = CheckTheResult(userNumber, randomNumber) 
+    setResult(ReturnedResult)
+    
+    AlertCheck(ReturnedResult)
+    
 
+    
+  };
 
   return (
     <div className="App">
@@ -35,11 +44,27 @@ const App = () => {
         >
           Learn React
         </a>
-        <input  type="text" id="UserInput" placeholder="Guess The Number" name="fname"></input> 
-        <button type="button" id="GuessEvent" onClick={() =>{deneme(randomNumber)}} >Click Me!</button>
+        <input
+          type="text"
+          id="UserInput"
+          placeholder="Guess The Number"
+          name="fname"
+        ></input>
+        <button
+          type="button"
+          id="GuessEvent"
+          onClick={() => {
+            check(document.getElementById("UserInput").value) 
+            ;
+          }}
+        >
+          Click Me!{randomNumber}
+        </button>
+        <div>Number of prediction: {counter}</div>
+        <div>Result: {result}</div>
       </header>
     </div>
   );
-}
+};
 
 export default App;
