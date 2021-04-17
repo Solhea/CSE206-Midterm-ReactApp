@@ -4,8 +4,8 @@ import React, { useState } from "react";
 import RandomNumber from "./RandomNumber";
 import CheckTheResult from "./CheckTheResult";
 
-const AlertCheck = (abc) => {
-  if (abc === "+4") {
+const AlertCheck = (ReturnedResult) => {
+  if (ReturnedResult === "+4") {
     alert("You win");
   }
 }
