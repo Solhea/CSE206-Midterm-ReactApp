@@ -5,7 +5,9 @@ import GuessGamePage from './pages/GuessGamePage';
 import SliderPage from './pages/Slider';
 import HomePage from './pages/HomePage';
 import Footer from './components/Footer';
-import Game1Page from './pages/Game1Page';
+import Game1WikiPage from './pages/Game1WikiPage';
+import Game2WikiPage from './pages/Game2WikiPage';
+import Game3WikiPage from './pages/Game3WikiPage';
 
 function App() {
   return (
@@ -15,7 +17,9 @@ function App() {
             <Switch>
               <Route path="/GuessGamePage" component={GuessGame}></Route>
               <Route path="/SliderPage" component={Slider}></Route>
-              <Route path="/Game1Page" component={Game1}></Route>
+              <Route path="/Game1WikiPage" component={Game1Wiki}></Route>
+              <Route path="/Game2WikiPage" component={Game2Wiki}></Route>
+              <Route path="/Game3WikiPage" component={Game3Wiki}></Route>
               <Route path="/" component={Home}></Route>
             </Switch>
             <Footer></Footer>
@@ -42,10 +46,18 @@ const Slider=()=>{
 </div>;
 }
 
-const Game1=()=>{
+const Game1Wiki=()=>{
   return <div>
-    <Game1Page></Game1Page>
-  </div>;
+    <Game1WikiPage></Game1WikiPage>
+    </div>;
+}
+
+const Game2Wiki=()=>{
+  return <Game2WikiPage></Game2WikiPage>;
+}
+
+const Game3Wiki=()=>{
+  return <Game3WikiPage></Game3WikiPage>;
 }
 
 export default App;
