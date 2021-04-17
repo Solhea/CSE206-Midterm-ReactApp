@@ -18,7 +18,6 @@ const GuessGamePage = () => {
 
   const check = (userNumber) => {
     setCounter(counter + 1);
-
     setResult(CheckTheResult(userNumber, randomNumber));
   };
   const NewGameSetting = () => {
