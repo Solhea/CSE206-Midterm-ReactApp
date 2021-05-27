@@ -2,8 +2,8 @@ import "../assets/css/GuessGamePage.css";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import React, { useState, useEffect } from "react";
-import RandomNumber from "./RandomNumber";
-import CheckTheResult from "./CheckTheResult";
+import RandomNumber from "../javaScripts/RandomNumber";
+import CheckTheResult from "../javaScripts/CheckTheResult";
 
 const AlertCheck = (ReturnedResult, RandomNumber) => {
   if (ReturnedResult === "+4") {
@@ -54,7 +54,6 @@ const GuessGamePage = () => {
       </div>
       <div class="PredicText">Number of Predictions: {counter}</div>
       <div class="PredicText">Result: {result}</div>
-      {console.log(randomNumber)}
       <div class="GuessEvent">
         <Button
           type="button"
