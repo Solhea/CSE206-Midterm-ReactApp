@@ -6,12 +6,14 @@ const GamesListFromDatabase = () => {
   const [newGameName, setNewGameName] = React.useState();
   const [newPlayed, setNewPlayed] = React.useState(false);
   React.useEffect(() => {
-    const fetchData = async () => {
-      const db = fire.firestore();
-      const data = await db.collection("games").get();
-      setGames(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-    };
-    fetchData();
+    const db = fire.firestore();
+    return db.collection("games").onSnapshot((snapshot) => {
+      const gamesData = [];
+      snapshot.forEach((doc) => gamesData.push({ ...doc.data(), id: doc.id }));
+      setGames(gamesData);
+    });
+    /* const data = await db.collection("games").get();
+      setGames(data.docs.map((doc) => ({ ...doc.data(), id: doc.id }))); */
   }, []);
 
   const onCreate = () => {
@@ -45,7 +47,7 @@ const GamesListFromDatabase = () => {
           <div className="GameName">Game Name</div>
           <div className="PLAYED">Played?</div>
           {games.map((game) => (
-            <li key={game.name}>
+            <li key={game.id}>
               <GameInput game={game} />
             </li>
           ))}
