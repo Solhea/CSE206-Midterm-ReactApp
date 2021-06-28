@@ -4,14 +4,13 @@ require("firebase/database");
 require("firebase/firestore");
 
 var firebaseConfig = {
-  apiKey: "AIzaSyDmL2WT4Bq4nOjH3U7s9IwNzvADbZ1AX1U",
-  authDomain: "web-final-824b5.firebaseapp.com",
-  databaseURL:
-    "https://web-final-824b5-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "web-final-824b5",
-  storageBucket: "web-final-824b5.appspot.com",
-  messagingSenderId: "351874420752",
-  appId: "1:351874420752:web:2ccfdac2d08f5bd1cffa95",
+  apiKey: "AIzaSyBPbTOZtpNZBemyXNPYcJn0DxMha9zX1F0",
+  authDomain: "test-games-cd6c1.firebaseapp.com",
+  projectId: "test-games-cd6c1",
+  storageBucket: "test-games-cd6c1.appspot.com",
+  messagingSenderId: "648680393325",
+  appId: "1:648680393325:web:4f3ccd4cbfb75589334d64",
+  measurementId: "G-PJ2LGJHF1K",
 };
 
 const fire = firebase.initializeApp(firebaseConfig);

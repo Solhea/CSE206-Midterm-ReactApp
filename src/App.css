@@ -49,9 +49,9 @@
 }
 .updateDeleteInfo {
   font-weight: bold;
-  max-width: 12%;
+  max-width: 20%;
   margin-left: 37%;
-  margin-top: -15%;
+  margin-top: -5%;
 }
 
 @media (prefers-reduced-motion: no-preference) {
