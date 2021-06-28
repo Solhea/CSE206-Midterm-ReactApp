@@ -12,7 +12,7 @@ const GamesListFromDatabase = () => {
       setGames(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
     fetchData();
-  }, [games]);
+  }, []);
 
   const onCreate = () => {
     const db = fire.firestore();
